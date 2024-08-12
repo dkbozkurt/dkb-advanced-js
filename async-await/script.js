@@ -23,11 +23,23 @@ function processRequest(response)
     })
 }
 
-makeRequest('Google').then(response => {
+// Promise based
+// makeRequest('Google').then(response => {
+//     console.log('Response Received')
+//     return processRequest(response)
+// }).then(processedResponse => {
+//     console.log(processedResponse);
+// }).catch(err => {
+//     console.log(err)
+// })
+
+// Async - await based
+async function doWork(){
+    // Code will wait till get the response from the makeRequest function
+    const response = await makeRequest('Google')
     console.log('Response Received')
-    return processRequest(response)
-}).then(processedResponse => {
+    const processedResponse = await processRequest(response)
     console.log(processedResponse);
-}).catch(err => {
-    console.log(err)
-})
+}
+
+doWork()
