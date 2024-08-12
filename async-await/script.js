@@ -35,11 +35,17 @@ function processRequest(response)
 
 // Async - await based
 async function doWork(){
-    // Code will wait till get the response from the makeRequest function
-    const response = await makeRequest('Google')
-    console.log('Response Received')
-    const processedResponse = await processRequest(response)
-    console.log(processedResponse);
+    try {
+        // Code will wait till get the response from the makeRequest function
+        const response = await makeRequest('Facebook')
+        console.log('Response Received')
+        const processedResponse = await processRequest(response)
+        console.log(processedResponse);
+    }
+    catch (err)
+    {
+        console.log(err)
+    }
 }
 
 doWork()
